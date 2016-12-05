@@ -101,5 +101,107 @@ $random = array(
         print_r($people);
 // --------------------------------------------------------------------------------
 # REMOVING SPECIFIC VALUES FROM ARRAY (unset)
-    // The unset
+    // The unset function allows you to remove a specific item from an array.
+        // 1 required param ( var you want to remove)
+
+  // Unset has the ability to remove several variables at the same time , you
+  //  just separate everything with a coma
+
+        unset($people[1], $people[0]);
+
+        //works the same way with associate arrays
+        unset($random['Lilo']); // removes Lilo from $random array
+
+        print_r($people);
+// --------------------------------------------------------------------------------
+// SORTING ARRAYS - there are many ways to sort an array
+        $food = array(
+          "hot dogs",
+          "pizza",
+          "salad",
+          "mashed potato",
+          "mac and cheese"
+          );
+
+        $foodAssociative = array(
+            "baseball game" => "peanuts ",
+            "healthy" => "juice",
+            "italian" => "pasta",
+            "cuban" => "ropa vieja",
+            "junk food" => "cheeseburgers"
+          )
+    // takes 1 required param, optional parameter
+        sort($food);
+        print_r($good); // it sorts all the values in alphabetical order
+
+        # NOTE sort($foodAssociative); // when u sort an associative array
+        // all the key values will be gone and become indexed values
+
+       #  ASORT // takes 2 paramets ( 1 required param , optional param sort flag)
+
+        //  preserves the keys of the values of the array ,
+        // Asort preserves all the key values perfect for dealing with associative arrays
+        asort($foodAssociative);  // idea for assoicate array
+        print_r($foodAssociative);
+
+        asort($food);
+        print_r($food); // notice that the key values won't be in order cause values are preserved
+
+        # KSORT - will sort the array by its key value and will maintain
+       //  that key to data corralation. Case sort is for associative array
+
+        #  1 req param ,1 optional ( sort flags)
+        ksort($foodAssociative);
+        print_r($foodAssociative);
+// --------------------------------------------------------------------------------
+  # COUNT() - takes 2 params
+        // 1st is param ( $array var )
+        // 2nd is optional deals with multidimensional arrays
+
+        echo count($foodAssociative);
+
+        // counting Multidimensional Arrays - using constant set up by PHP count recursive
+    $authorsMult = [
+        "Male" => array(
+            "Charles Dicken" => array("A Christmas Carol", "Oliver Twist"),
+            "Williams Shakespeare" => array("Romeo & Juliet", "Richard III")
+            ),
+        "Female" = array(
+          "L.M. Montogmerry" => array("Anne of Green Gables", "Anne of Turkey Land"),
+          "Gaby Hernandez" => array("Dogs", "Llamas", "Kangaroos")
+          )
+    ];
+    print_r($authorsMult);
+
+    //to access values of multidimensional arrays
+    print_r($authorsMult['Male']);
+    // you can take it further
+    print_r($authorsMult['Male']['Charles Dicken']);
+    // even further
+    print_r($authorsMult['Male'],['Charles Dicken'],[0]);
+
+    echo count($authorsMult, 1); // 2nd param is usiing PHP constant count recursive
+    echo count($authorsMult, COUNT_RECURSIVE); // doesn't matter which one you use
+
+    // --------------------------------------------------------------------------------
+# FOR EACH LOOP ( )- designed specifically for arrays
+  // loops through each individual item in array
+        $dog = array("woof", "woof", "roar", "woofwooofoo");
+
+        foreach ($dog as $value){
+          echo "$value.\n";
+        }
+
+       $foodAssociative = array(
+                  "baseball game" => "peanuts ",
+                  "healthy" => "juice",
+                  "italian" => "pasta",
+                  "cuban" => "ropa vieja",
+                  "junk food" => "cheeseburgers"
+                )
+          // getting keys from associative array in for each loop
+         foreach($foodAssociative as $key => $value){
+          echo "$value.\n$key.\n";
+        }
+
 
